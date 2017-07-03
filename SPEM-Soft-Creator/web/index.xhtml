@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="utf-8"></meta>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta name="description" content=""></meta>
+        <meta name="author" content=""></meta>
+
+        <title>SPEM Creator</title>
+        <h:outputStylesheet name="css/bootstrap.min.css" library="template" />
+        <h:outputStylesheet name="css/landing-page.css" library="template" />
+        <h:outputStylesheet name="font-awesome/css/font-awesome.min.css" library="template" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"></link>
+
+        <h:outputScript name="js/jquery.js" library="template" />
+        <h:outputScript name="js/bootstrap.min.js" library="template" />
+    </h:head>
+    <h:body >
+        <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+            <div class="container topnav">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand topnav" href="#">SPEM creator</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#about">Sobre</a>
+                        </li>
+                        <li>
+                            <a href="#services">Funcionalidades</a>
+                        </li>
+                        <li>
+                            <a href="#contact">Contato</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+
+
+        <!-- Header -->
+        <a name="about"></a>
+        <div class="intro-header">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="intro-message">
+                            <h1>SPEM creator</h1>
+                            <h3>Selecione um arquivo SPEM e crie seu software</h3>
+                            <h4><h:form  enctype="multipart/form-data">
+                                    <p:fileUpload value="#{spemMB.addSpem}" style="padding: 5%; padding-right: 20%; padding-left: 20%"
+                                                  label="Adicionar" cancelLabel="Cancelar" uploadLabel="Salvar"
+                                                  mode="simple" allowTypes="/(\.|\/)(.txt)$/"
+                                                  dragDropSupport="true" />
+                                    <h:commandLink actionListener="#{spemMB.criarSoftwareSuporte()}" value="Criar Software de Suporte"></h:commandLink>
+                                </h:form></h4>
+                            <hr class="intro-divider"></hr>
+                            <ul class="list-inline intro-social-buttons">
+                                <li>
+                                    <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /.intro-header -->
+
+        <!-- Page Content -->
+
+        <a  name="services"></a>
+        <div class="content-section-a">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-sm-6">
+                        <hr class="section-heading-spacer"></hr>
+                        <div class="clearfix"></div>
+                        <h2 class="section-heading">Simples</h2>
+                        <p class="lead">Apenas selecione um arquivo contendo a modelagem SPEM do seu processo e crie um software de gestão.</p>
+                    </div>
+                    <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                        <img class="img-responsive" src="#{resource['template/img/ipad.png']}" alt=""></img>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /.content-section-a -->
+
+        <div class="content-section-b">
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                        <hr class="section-heading-spacer"></hr>
+                        <div class="clearfix"></div>
+                        <h2 class="section-heading">3D Device Mockups<br></br>by PSDCovers</h2>
+                        <p class="lead">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by <a target="_blank" href="http://www.psdcovers.com/">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p>
+                    </div>
+                    <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                        <img class="img-responsive" src="#{resource['template/img/dog.png']}" alt=""></img>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /.content-section-b -->
+<!--
+        <div class="content-section-a">
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-5 col-sm-6">
+                        <hr class="section-heading-spacer"></hr>
+                        <div class="clearfix"></div>
+                        <h2 class="section-heading">Google Web Fonts and<br></br>Font Awesome Icons</h2>
+                        <p class="lead">This template features the 'Lato' font, part of the <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
+                    </div>
+                    <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                        <img class="img-responsive" src="#{resource['template/img/phones.png']}" alt=""></img>
+                    </div>
+                </div>
+
+            </div>
+             /.container 
+
+        </div>
+         /.content-section-a 
+
+        <a  name="contact"></a>
+        <div class="banner">
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2>Dúvidas? Veja o projeto</h2>
+                    </div>
+                    <div class="col-lg-6">
+                        <ul class="list-inline banner-social-buttons">
+                            <li>
+                                <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+             /.container 
+
+        </div>-->
+        <!-- /.banner -->
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#">Inicio</a>
+                            </li>
+                            <li class="footer-menu-divider">&sdot;</li>
+                            <li>
+                                <a href="#about">Sobre</a>
+                            </li>
+                            <li class="footer-menu-divider">&sdot;</li>
+                            <li>
+                                <a href="#services">Funcionalidades</a>
+                            </li>
+                            <li class="footer-menu-divider">&sdot;</li>
+                            <li>
+                                <a href="#contact">Contato</a>
+                            </li>
+                        </ul>
+                        <p class="copyright text-muted small">Copyright &copy; Eduardo, Douglas 2017. All Rights Reserved</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </h:body>
+</html>
+

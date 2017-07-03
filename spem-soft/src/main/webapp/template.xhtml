@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>SPEM-Creator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description" content="spem creator"/>
+        <meta name="author" content="douglas, eduardo"/>
+        <h:outputStylesheet name="css/bootstrap-responsive.css" library="Maxim" />
+        <h:outputStylesheet name="css/bootstrap.min.css" library="Maxim" />
+        <h:outputStylesheet name="css/style.css" library="Maxim" />
+        <h:outputStylesheet name="color/default.css" library="Maxim" />
+        <h:outputStylesheet name="css/font-awesome.css" library="Maxim"/>
+        <link rel="shortcut icon" href="#{resource['Maxim/img/favicon.ico']}"/>
+        <h:outputScript name="js/jquery.js" library="Maxim" />
+        <h:outputScript name="js/jquery.scrollTo.js" library="Maxim" />
+        <h:outputScript name="js/jquery.nav.js" library="Maxim" />
+        <h:outputScript name="js/jquery.localscroll-1.2.7-min.js" library="Maxim" />
+        <h:outputScript name="js/bootstrap.js" library="Maxim" />
+        <h:outputScript name="js/jquery.prettyPhoto.js" library="Maxim" />
+        <h:outputScript name="js/isotope.js" library="Maxim" />
+        <h:outputScript name="js/jquery.flexslider.js" library="Maxim" />
+        <h:outputScript name="js/inview.js" library="Maxim" />
+        <h:outputScript name="js/animate.js" library="Maxim" />
+        <h:outputScript name="js/validate.js" library="Maxim" />
+        <h:outputScript name="js/custom.js" library="Maxim" />
+        <h:outputScript name="contactform/contactform.js" library="Maxim" />
+    </h:head>
+    <h:body>
+        <!-- navbar -->
+        <div class="navbar-wrapper">
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <!-- Responsive navbar -->
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                        </a>
+                        <h1 class="brand"><a href="index.html">SPEM-soft</a></h1>
+                        <!-- navigation -->
+                        <nav class="pull-right nav-collapse collapse">
+                            <ul id="menu-main" class="nav">
+                                <li><a title="team" href="#about">Sobre</a></li>
+                                <li><a title="contact" href="#contact">Contato</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header area -->
+<!--        <div id="header-wrapper" class="header-slider">
+            <header class="clearfix">
+                <div class="logo">
+                    <img src="#{resource['Maxim/img/logo-image.png']}" alt="" />
+                </div>
+                <div class="container">
+
+                </div>
+            </header>
+        </div>-->
+        <!-- spacer section -->
+        <section class="spacer green">
+                                    <ui:insert name="content">
+                    Template
+                </ui:insert>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="span6 offset3">
+                        <ul class="social-networks">
+                            <li><a href="#"><i class="icon-circled icon-bgdark icon-instagram icon-2x"></i></a></li>
+                            <li><a href="#"><i class="icon-circled icon-bgdark icon-twitter icon-2x"></i></a></li>
+                            <li><a href="#"><i class="icon-circled icon-bgdark icon-dribbble icon-2x"></i></a></li>
+                            <li><a href="#"><i class="icon-circled icon-bgdark icon-pinterest icon-2x"></i></a></li>
+                        </ul>
+                        <p class="copyright">
+                            Douglas, Eduardo. All rights reserved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- ./container -->
+        </footer>
+        <a href="#" class="scrollup"><i class="icon-angle-up icon-square icon-bgdark icon-2x"></i></a>
+
+    </h:body>
+</html>

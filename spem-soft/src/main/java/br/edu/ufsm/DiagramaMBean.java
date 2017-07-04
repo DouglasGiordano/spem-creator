@@ -6,17 +6,24 @@
 package br.edu.ufsm;
 
 import br.edu.ufsm.diagram.Elemento;
+import br.edu.ufsm.model.ContentElement;
+import br.edu.ufsm.model.MethodLibrary;
+import br.edu.ufsm.parse.ParseXML;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import org.primefaces.model.UploadedFile;
 import org.primefaces.model.diagram.Connection;
 import org.primefaces.model.diagram.DefaultDiagramModel;
 import org.primefaces.model.diagram.DiagramModel;
 import org.primefaces.model.diagram.Element;
+import org.primefaces.model.diagram.connector.FlowChartConnector;
 import org.primefaces.model.diagram.endpoint.BlankEndPoint;
 import org.primefaces.model.diagram.endpoint.EndPoint;
 import org.primefaces.model.diagram.endpoint.EndPointAnchor;
@@ -29,70 +36,22 @@ import org.primefaces.model.diagram.overlay.LabelOverlay;
  */
 @ManagedBean(name = "diagramBasicView")
 @ViewScoped
-public class DiagramaMBean implements Serializable{
+public class DiagramaMBean implements Serializable {
 
     private DefaultDiagramModel model;
     private Elemento elementoAtual;
+    private UploadedFile uploadedFile;
+    private MethodLibrary methodLibrary;
 
     @PostConstruct
     public void init() {
-        int x = 0;
-        int y = 0;
-        List<Elemento> activities = new ArrayList<Elemento>();
-        List<Elemento> workProducts = new ArrayList<Elemento>();
-        Elemento e1 = new Elemento("Levantar Requisitos");
-        Elemento e2 = new Elemento("Rastrear Requisitos");
-        Elemento e3 = new Elemento("Documentar os Requisitos");
-        Elemento e4 = new Elemento("Caso de Uso");
-        e1.getDestinos().add(e2);
-        e1.getAgregacoes().add(e4);
-        e2.getDestinos().add(e3);
-        e2.getAgregacoes().add(e4);
-        e3.getAgregacoes().add(e4);
-        activities.add(e1);
-        activities.add(e2);
-        activities.add(e3);
-
-        workProducts.add(e4);
 
         model = new DefaultDiagramModel();
         model.setMaxConnections(-1);
-
-        for (Elemento elemento : activities) {
-            Element elementoD = new Element(elemento, x + "em", y + "em");
-//            elementoD.setStyleClass(styleClass);
-            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
-            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
-            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
-            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
-            elemento.setElementoDiagrama(elementoD);
-            model.addElement(elementoD);
-            x += 20;
-            y += 0;
-        }
-        x = 0;
-        y = 20;
-        for (Elemento elemento : workProducts) {
-            Element elementoD = new Element(elemento, x + "em", y + "em");
-            elementoD.setStyleClass("ui-diagram-element-artefatos");
-            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
-            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
-            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
-            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
-            elemento.setElementoDiagrama(elementoD);
-            model.addElement(elementoD);
-            x += 20;
-            y += 0;
-        }
-
-        for (Elemento elemento : activities) {
-            for (int i = 0; i < elemento.getDestinos().size(); i++) {
-                model.connect(createConnection(elemento.getElementoDiagrama().getEndPoints().get(0), elemento.getDestinos().get(i).getElementoDiagrama().getEndPoints().get(1), null));
-            }
-            for (int j = 0; j < elemento.getAgregacoes().size(); j++) {
-                model.connect(createConnection(elemento.getElementoDiagrama().getEndPoints().get(2), elemento.getAgregacoes().get(j).getElementoDiagrama().getEndPoints().get(3), null));
-            }
-        }
+        FlowChartConnector connector = new FlowChartConnector();
+        connector.setAlwaysRespectStubs(true);
+        connector.setPaintStyle("{strokeStyle:'#C7B097',lineWidth:3}");
+        model.setDefaultConnector(connector);
     }
 
     private Connection createConnection(EndPoint from, EndPoint to, String label) {
@@ -110,6 +69,91 @@ public class DiagramaMBean implements Serializable{
         return model;
     }
 
+    public void gerarDiagramaSpem() {
+        if (methodLibrary == null) {
+            return;
+        }
+
+        List<Elemento> activities = new ArrayList<Elemento>();
+        List<Elemento> workProducts = new ArrayList<Elemento>();
+        List<Elemento> roles = new ArrayList<Elemento>();
+        for (ContentElement elementoType : methodLibrary.getPlugin().getPackageContent().get(1).getContentElement()) {
+            switch (elementoType.getType()) {
+                case "uma:Artifact":
+                    workProducts.add(new Elemento(elementoType.getPresentationName()));
+                    break;
+                case "uma:Task":
+                    activities.add(new Elemento(elementoType.getPresentationName()));
+                    break;
+                case "uma:Role":
+                    roles.add(new Elemento(elementoType.getPresentationName()));
+                    break;
+            }
+
+        }
+        int x = 0;
+        int y = 5;
+
+        for (Elemento elemento : roles) {
+            Element elementoD = new Element(elemento, x + "em", y + "em");
+            elementoD.setStyleClass("ui-diagram-element-papeis");
+            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
+            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
+            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
+            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
+            elemento.setElementoDiagrama(elementoD);
+            model.addElement(elementoD);
+            x += 20;
+        }
+
+        x = 0;
+        y = 20;
+        for (Elemento elemento : activities) {
+            Element elementoD = new Element(elemento, x + "em", y + "em");
+//            elementoD.setStyleClass(styleClass);
+            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
+            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
+            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
+            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
+            elemento.setElementoDiagrama(elementoD);
+            model.addElement(elementoD);
+            x += 20;
+        }
+        x = 0;
+        y = 30;
+        for (Elemento elemento : workProducts) {
+            Element elementoD = new Element(elemento, x + "em", y + "em");
+            elementoD.setStyleClass("ui-diagram-element-artefatos");
+            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
+            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
+            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
+            elementoD.addEndPoint(new BlankEndPoint(EndPointAnchor.AUTO_DEFAULT));
+            elemento.setElementoDiagrama(elementoD);
+            model.addElement(elementoD);
+            x += 20;
+        }
+
+        for (Elemento elemento : activities) {
+            for (int i = 0; i < elemento.getDestinos().size(); i++) {
+                model.connect(createConnection(elemento.getElementoDiagrama().getEndPoints().get(0), elemento.getDestinos().get(i).getElementoDiagrama().getEndPoints().get(1), null));
+            }
+            for (int j = 0; j < elemento.getAgregacoes().size(); j++) {
+                model.connect(createConnection(elemento.getElementoDiagrama().getEndPoints().get(2), elemento.getAgregacoes().get(j).getElementoDiagrama().getEndPoints().get(3), null));
+            }
+        }
+    }
+
+    public void upload() throws UnsupportedEncodingException {
+        byte[] bytes = uploadedFile.getContents();
+        String str = new String(bytes, "UTF-8");
+        System.out.println(str);
+        methodLibrary = ParseXML.parse(str);
+        FacesContext.getCurrentInstance().addMessage(
+                null, new FacesMessage("Upload completo",
+                        "O arquivo " + uploadedFile.getFileName() + " foi salvo!"));
+        gerarDiagramaSpem();
+    }
+
     /**
      * @return the elementoAtual
      */
@@ -124,13 +168,28 @@ public class DiagramaMBean implements Serializable{
      */
     public void setElementoAtual(Elemento elementoAtual) {
         this.elementoAtual = elementoAtual;
-        System.out.println("elemento adicionado "+elementoAtual);
+        System.out.println("elemento adicionado " + elementoAtual);
     }
-    
-    public void teste(Elemento el){
+
+    public void teste(Elemento el) {
         System.out.println(el);
     }
-        public void teste2(String el){
+
+    public void teste2(String el) {
         System.out.println(el);
+    }
+
+    /**
+     * @return the uploadedFile
+     */
+    public UploadedFile getUploadedFile() {
+        return uploadedFile;
+    }
+
+    /**
+     * @param uploadedFile the uploadedFile to set
+     */
+    public void setUploadedFile(UploadedFile uploadedFile) {
+        this.uploadedFile = uploadedFile;
     }
 }

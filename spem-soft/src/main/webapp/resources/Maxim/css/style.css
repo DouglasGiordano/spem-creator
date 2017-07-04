@@ -488,6 +488,18 @@ section.spacer {
 .spacer.orange,.section.orange {
 	background:#f36f36;
 }
+.spacer.colorOne,.section.colorOne {
+	background:#CDB380;
+}
+.spacer.colorTwo,.section.colorTwo {
+	background:#036564;
+}
+.spacer.colorThree,.section.colorThree {
+	background:#033649;
+}
+.spacer.colorFour,.section.colorFour {
+	background:#031634;
+}
 
 section.spacer.bg2 {
 	background: url("#{resource['Maxim/img/bg/bg-2.jpg']}") 50% 0 no-repeat fixed;

@@ -6,18 +6,30 @@
                 xmlns:pe="http://primefaces.org/ui/extensions"
                 template="template.xhtml"
                 xmlns:porthal="http://xmlns.jcp.org/jsf/composite/porthal">
+    <ui:define name="contentOne">
+        <h:form enctype="multipart/form-data" style="padding: 2%">
+            <h3>1. Escolha o arquivo SPEM</h3>
+            <p:fileUpload value="#{diagramBasicView.uploadedFile}" mode="simple"/>
+            <br/>
+            <br/>
+
+            <h3>2. Clique em enviar para gerar o diagrama</h3>
+            <p:commandLink value="Enviar" ajax="false" class="btn btn-success"
+                           actionListener="#{diagramBasicView.upload}"  update=":diagramSpem"/>
+        </h:form>
+    </ui:define>
 
     <ui:define name="content">
 
-        <h:form prependId="false">
-            <p:diagram value="#{diagramBasicView.model}" var="el" widgetVar="diagrama" style="height:400px; width: auto" styleClass="ui-widget-content" >
+        <h:form prependId="false" id="diagramSpem">
+            <p:diagram value="#{diagramBasicView.model}" var="el" widgetVar="diagrama" style="height:400px; width: auto; background:#033649;border: #033649" styleClass="ui-widget-content" >
                 <f:facet name="element">
                     #{el}
 
-                    <h:commandLink value="+" onclick="$('.bs-example-modal-sm').modal('show');"
-                                   actionListener="#{diagramBasicView.teste(el)}" rendered=":modal">
+                    <p:commandLink value="+" onclick="$('.bs-example-modal-sm').modal('show');" ajax="true"
+                                   actionListener="#{diagramBasicView.teste(el)}" update=":modal">
                         <f:setPropertyActionListener target="#{diagramBasicView.elementoAtual}" value="#{el}" />
-                    </h:commandLink>
+                    </p:commandLink>
 
                 </f:facet>
             </p:diagram>
@@ -32,9 +44,6 @@
                     </div>
                 </div>
             </div>
-        <script>
-            $('.bs-example-modal-sm').modal('show');
-        </script>
         </h:form>
 
         <style type="text/css">
@@ -47,8 +56,8 @@
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
                 border-radius: 4px;
                 border: 1px solid transparent;
-                background-color: #98AFC7;
-                color: #ffffff;
+                background-color: #ffffff;
+                color: #000000;
             }
 
             .ui-diagram-element-artefatos {   
@@ -61,6 +70,18 @@
                 border-radius: 20px;
                 border: 1px solid transparent;
                 background-color: #b94a48;
+                color: #ffffff;
+            }
+            .ui-diagram-element-papeis {   
+                width:10em; 
+                height:4em;     
+                font-size: 14px;
+                line-height:4em;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+                border-radius: 10px;
+                border: 1px solid transparent;
+                background-color: #7aba7b;
                 color: #ffffff;
             }
 

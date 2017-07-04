@@ -4,13 +4,11 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
     <div style="padding: 2%; color: #000">
-        <h1>
-            <h:outputLabel value="#{diagramBasicView.elementoAtual}">
-            </h:outputLabel>
-        </h1>
+        <h3>
+            #{diagramBasicView.elementoAtual}
+        </h3>
         <p>
-            <h:outputLabel value="#{diagramBasicView.elementoAtual.pequenaDescricao}">
-            </h:outputLabel>
+            #{diagramBasicView.elementoAtual.pequenaDescricao}
         </p>
         <h:commandLink class="btn btn-success" actionListener="#{diagramBasicView.finalizarActivity}">Finalizar</h:commandLink>
     </div>

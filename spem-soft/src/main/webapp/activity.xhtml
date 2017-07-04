@@ -3,11 +3,15 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <div class="container" style="padding: 2%">
+    <div style="padding: 2%; color: #000">
         <h1>
-            <h:outputLabel value="#{diagramBasicView.elementoAtual}"></h:outputLabel>
-            <h:outputLabel value="#{elemento}"></h:outputLabel>
+            <h:outputLabel value="#{diagramBasicView.elementoAtual}">
+            </h:outputLabel>
         </h1>
-        <h:commandLink class="btn btn-success">Finalizar</h:commandLink>
+        <p>
+            <h:outputLabel value="#{diagramBasicView.elementoAtual.pequenaDescricao}">
+            </h:outputLabel>
+        </p>
+        <h:commandLink class="btn btn-success" actionListener="#{diagramBasicView.finalizarActivity}">Finalizar</h:commandLink>
     </div>
 </ui:composition>

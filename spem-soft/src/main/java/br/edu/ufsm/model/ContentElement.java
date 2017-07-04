@@ -7,24 +7,40 @@ package br.edu.ufsm.model;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
+import com.thoughtworks.xstream.annotations.XStreamImplicit;
+import java.util.List;
 
 /**
  *
- * @author douglas
+ * @author douglas giordano, eduardo bruning
  */
-
 @XStreamAlias("ContentElement")
 public class ContentElement {
 
     @XStreamAsAttribute
+    private String id;
+
+    @XStreamAsAttribute
     @XStreamAlias("xsi:type")
     private String type;
-    
+
     @XStreamAsAttribute
     private String name;
-    
+
+    @XStreamAsAttribute
+    private String briefDescription;
+
     @XStreamAsAttribute
     private String presentationName;
+    
+    @XStreamImplicit(itemFieldName = "ResponsibleFor")
+    private List<String> responsibleFor;
+
+    @XStreamImplicit(itemFieldName = "MandatoryInput")
+    private List<String> mandatoryInput;
+
+    @XStreamImplicit(itemFieldName = "Output")
+    private List<String> output;
 
     /**
      * @return the type
@@ -66,5 +82,75 @@ public class ContentElement {
      */
     public void setPresentationName(String presentationName) {
         this.presentationName = presentationName;
+    }
+
+    /**
+     * @return the mandatoryInput
+     */
+    public List<String> getMandatoryInput() {
+        return mandatoryInput;
+    }
+
+    /**
+     * @param mandatoryInput the mandatoryInput to set
+     */
+    public void setMandatoryInput(List<String> mandatoryInput) {
+        this.mandatoryInput = mandatoryInput;
+    }
+
+    /**
+     * @return the output
+     */
+    public List<String> getOutput() {
+        return output;
+    }
+
+    /**
+     * @param output the output to set
+     */
+    public void setOutput(List<String> output) {
+        this.output = output;
+    }
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the briefDescription
+     */
+    public String getBriefDescription() {
+        return briefDescription;
+    }
+
+    /**
+     * @param briefDescription the briefDescription to set
+     */
+    public void setBriefDescription(String briefDescription) {
+        this.briefDescription = briefDescription;
+    }
+
+    /**
+     * @return the responsibleFor
+     */
+    public List<String> getResponsibleFor() {
+        return responsibleFor;
+    }
+
+    /**
+     * @param responsibleFor the responsibleFor to set
+     */
+    public void setResponsibleFor(List<String> responsibleFor) {
+        this.responsibleFor = responsibleFor;
     }
 }

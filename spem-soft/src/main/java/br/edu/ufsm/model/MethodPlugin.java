@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author douglas
+ * @author douglas giordano, eduardo bruning
  */
 @XStreamAlias("MethodPlugin")
 public class MethodPlugin {

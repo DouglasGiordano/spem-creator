@@ -17,7 +17,7 @@ import java.util.Map;
 
 /**
  *
- * @author douglas
+ * @author douglas giordano, eduardo bruning
  */
 public class MethodPackegeConverter extends ReflectionConverter {
 

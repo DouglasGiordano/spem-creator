@@ -10,7 +10,7 @@ import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 
 /**
  *
- * @author douglas
+ * @author douglas giordano, eduardo bruning
  */
 
 @XStreamAlias("uma:MethodLibrary")

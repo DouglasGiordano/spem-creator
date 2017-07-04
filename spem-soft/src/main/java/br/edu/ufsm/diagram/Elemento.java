@@ -5,32 +5,28 @@
  */
 package br.edu.ufsm.diagram;
 
+import br.edu.ufsm.model.ContentElement;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import org.primefaces.model.diagram.Element;
 
 /**
  *
- * @author douglas
+ * @author douglas giordano, eduardo bruning
  */
-public class Elemento implements Serializable{
+public class Elemento implements Serializable {
+
     private String nome;
     private String descricao;
-    private boolean finalizado;
-    private List<Elemento> destinos;
-    private List<Elemento> agregacoes;
+    private String pequenaDescricao;
     private Element elementoDiagrama;
+    private ContentElement contentElement;
 
-    public Elemento(String descricao) {
+    public Elemento(String descricao, ContentElement contentElement) {
         this.descricao = descricao;
-        if (this.destinos == null) {
-            this.destinos = new ArrayList<>();
-        }
-        if (this.agregacoes == null) {
-            this.agregacoes = new ArrayList<>();
-        }
+        this.contentElement = contentElement;
+        this.nome = contentElement.getName();
+        this.pequenaDescricao = contentElement.getBriefDescription();
     }
 
     /**
@@ -45,34 +41,6 @@ public class Elemento implements Serializable{
      */
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    /**
-     * @return the finalizado
-     */
-    public boolean isFinalizado() {
-        return finalizado;
-    }
-
-    /**
-     * @param finalizado the finalizado to set
-     */
-    public void setFinalizado(boolean finalizado) {
-        this.finalizado = finalizado;
-    }
-
-    /**
-     * @return the destinos
-     */
-    public List<Elemento> getDestinos() {
-        return destinos;
-    }
-
-    /**
-     * @param destinos the destinos to set
-     */
-    public void setDestinos(List<Elemento> destinos) {
-        this.destinos = destinos;
     }
 
     /**
@@ -94,26 +62,10 @@ public class Elemento implements Serializable{
         return this.descricao;
     }
 
-    /**
-     * @return the agregacoes
-     */
-    public List<Elemento> getAgregacoes() {
-
-        return agregacoes;
-    }
-
-    /**
-     * @param agregacoes the agregacoes to set
-     */
-    public void setAgregacoes(List<Elemento> agregacoes) {
-        this.agregacoes = agregacoes;
-    }
-
     @Override
     public int hashCode() {
         int hash = 5;
         hash = 83 * hash + Objects.hashCode(this.descricao);
-        hash = 83 * hash + (this.finalizado ? 1 : 0);
         return hash;
     }
 
@@ -129,9 +81,6 @@ public class Elemento implements Serializable{
             return false;
         }
         final Elemento other = (Elemento) obj;
-        if (this.finalizado != other.finalizado) {
-            return false;
-        }
         if (!Objects.equals(this.descricao, other.descricao)) {
             return false;
         }
@@ -151,5 +100,33 @@ public class Elemento implements Serializable{
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
+    /**
+     * @return the contentElement
+     */
+    public ContentElement getContentElement() {
+        return contentElement;
+    }
+
+    /**
+     * @param contentElement the contentElement to set
+     */
+    public void setContentElement(ContentElement contentElement) {
+        this.contentElement = contentElement;
+    }
+
+    /**
+     * @return the pequenaDescricao
+     */
+    public String getPequenaDescricao() {
+        return pequenaDescricao;
+    }
+
+    /**
+     * @param pequenaDescricao the pequenaDescricao to set
+     */
+    public void setPequenaDescricao(String pequenaDescricao) {
+        this.pequenaDescricao = pequenaDescricao;
+    }
+
 }

@@ -11,7 +11,7 @@ import com.thoughtworks.xstream.annotations.XStreamConverter;
 
 /**
  *
- * @author douglas
+ * @author douglas giordano, eduardo bruning
  */
 @XStreamAlias("MethodPackage")
 public class ContentPackage extends MethodPackage{

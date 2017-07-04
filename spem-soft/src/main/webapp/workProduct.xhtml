@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <div style="padding: 2%; color: #000">
+        <h1>
+            <h:outputLabel value="#{diagramBasicView.elementoAtual}">
+            </h:outputLabel>
+        </h1>
+        <p>
+            <h:outputLabel value="#{diagramBasicView.elementoAtual.pequenaDescricao}">
+            </h:outputLabel>
+        </p>
+        <h4>1. Escolha um arquivo para anexar no workproduct</h4>
+        <p:fileUpload value="#{diagramBasicView.uploadedFileWorkProduct}" mode="simple"/>
+        <br/>
+        <br/>
+
+        <h4>2. Clique em enviar</h4>
+        <p:commandLink ajax="true" class="btn btn-success"
+                       actionListener="#{diagramBasicView.uploadWorkProduct}"  update="downloadWorkProduct">
+            Enviar <i class="icon-upload"></i>
+        </p:commandLink>
+        <h:panelGroup layout="block" id="downloadWorkProduct">
+            <h4>3. Agora pode efetuar o download</h4>
+            <p:commandLink class="btn btn-success" immediate="true" id="btDownloadXMLCC" ajax="false"
+                           actionListener="#{diagramBasicView.downloadDocumentoWorkProduct()}">
+                Download <i class="icon-download"></i>
+            </p:commandLink>  
+        </h:panelGroup>
+    </div>
+</ui:composition>

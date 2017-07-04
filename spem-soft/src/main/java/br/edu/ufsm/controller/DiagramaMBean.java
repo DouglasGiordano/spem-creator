@@ -7,9 +7,13 @@ package br.edu.ufsm.controller;
 
 import br.edu.ufsm.diagram.Elemento;
 import br.edu.ufsm.diagram.Task;
+import br.edu.ufsm.diagram.WorkProduct;
 import br.edu.ufsm.model.ContentElement;
 import br.edu.ufsm.model.MethodLibrary;
 import br.edu.ufsm.parse.ParseXML;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -29,6 +33,7 @@ import org.primefaces.model.diagram.endpoint.EndPoint;
 import org.primefaces.model.diagram.endpoint.EndPointAnchor;
 import org.primefaces.model.diagram.overlay.ArrowOverlay;
 import org.primefaces.model.diagram.overlay.LabelOverlay;
+import org.omnifaces.util.Faces;
 
 /**
  *
@@ -41,6 +46,7 @@ public class DiagramaMBean implements Serializable {
     private DefaultDiagramModel model;
     private Elemento elementoAtual;
     private UploadedFile uploadedFile;
+    private UploadedFile uploadedFileWorkProduct;
     private MethodLibrary methodLibrary;
 
     @PostConstruct
@@ -52,6 +58,11 @@ public class DiagramaMBean implements Serializable {
 //        connector.setAlwaysRespectStubs(true);
 //        connector.setPaintStyle("{strokeStyle:'#C7B097',lineWidth:3}");
 //        model.setDefaultConnector(connector);
+    }
+
+    public void novoDiagrama() {
+        model = new DefaultDiagramModel();
+        model.setMaxConnections(-1);
     }
 
     private Connection createConnection(EndPoint from, EndPoint to, String label) {
@@ -74,7 +85,7 @@ public class DiagramaMBean implements Serializable {
             return;
         }
         List<Task> activities = new ArrayList<Task>();
-        List<Elemento> workProducts = new ArrayList<Elemento>();
+        List<WorkProduct> workProducts = new ArrayList<WorkProduct>();
         List<Elemento> roles = new ArrayList<Elemento>();
         pesquisarElementos(activities, roles, workProducts);
         ligarElementos(activities, roles, workProducts);
@@ -117,11 +128,11 @@ public class DiagramaMBean implements Serializable {
         }
     }
 
-    private void pesquisarElementos(List<Task> activities, List<Elemento> roles, List<Elemento> workProducts) {
+    private void pesquisarElementos(List<Task> activities, List<Elemento> roles, List<WorkProduct> workProducts) {
         for (ContentElement elementoType : methodLibrary.getPlugin().getPackageContent().get(1).getContentElement()) {
             switch (elementoType.getType()) {
                 case "uma:Artifact":
-                    workProducts.add(new Elemento(elementoType.getPresentationName(), elementoType));
+                    workProducts.add(new WorkProduct(elementoType.getPresentationName(), elementoType));
                     break;
                 case "uma:Task":
                     activities.add(new Task(elementoType.getPresentationName(), elementoType));
@@ -133,9 +144,9 @@ public class DiagramaMBean implements Serializable {
         }
     }
 
-    private void ligarElementos(List<Task> activities, List<Elemento> roles, List<Elemento> workProducts) {
+    private void ligarElementos(List<Task> activities, List<Elemento> roles, List<WorkProduct> workProducts) {
         for (Task tarefa : activities) {
-            for (Elemento workProduct : workProducts) {
+            for (WorkProduct workProduct : workProducts) {
                 if (tarefa.getContentElement().getMandatoryInput() != null) {
                     for (String entrada : tarefa.getContentElement().getMandatoryInput()) {
                         if (entrada.equalsIgnoreCase(workProduct.getContentElement().getId())) {
@@ -187,6 +198,32 @@ public class DiagramaMBean implements Serializable {
         gerarDiagramaSpem();
     }
 
+    public void uploadWorkProduct() throws UnsupportedEncodingException {
+        byte[] bytes = uploadedFile.getContents();
+
+        File outputFile = new File(uploadedFile.getFileName());
+
+        try (FileOutputStream outputStream = new FileOutputStream(outputFile);) {
+
+            outputStream.write(bytes);  //write the bytes and your done. 
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ((WorkProduct) elementoAtual).setDocumento(outputFile);
+        FacesContext.getCurrentInstance().addMessage(
+                null, new FacesMessage("Upload completo",
+                        "O arquivo " + uploadedFile.getFileName() + " foi salvo!"));
+        gerarDiagramaSpem();
+    }
+
+    public void downloadDocumentoWorkProduct() {
+        try {
+            Faces.sendFile(((WorkProduct) elementoAtual).getDocumento(), true);
+        } catch (IOException ex) {
+        }
+    }
+
     /**
      * @return the elementoAtual
      */
@@ -225,19 +262,49 @@ public class DiagramaMBean implements Serializable {
     public void setUploadedFile(UploadedFile uploadedFile) {
         this.uploadedFile = uploadedFile;
     }
-    
+
     public void onElementClicked() {
-        String id= FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("elementId").replace("diagrama-", "");
+        String id = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("elementId").replace("diagrama-", "");
         Element element = model.findElement(id);
-        if(element == null){
+        if (element == null) {
             return;
         }
         Elemento elemento = (Elemento) element.getData();
         elementoAtual = elemento;
     }
-    
-    public void finalizarActivity(){
+
+    public void finalizarActivity() {
         elementoAtual.getElementoDiagrama().setStyleClass("ui-diagram-element-atividade-finalizada");
-        ((Task)elementoAtual).setFinalizado(true);
+        ((Task) elementoAtual).setFinalizado(true);
+    }
+
+    public boolean isTask() {
+        if (elementoAtual instanceof Task) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isWorkProduct() {
+        if (elementoAtual instanceof WorkProduct) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * @return the uploadedFileWorkProduct
+     */
+    public UploadedFile getUploadedFileWorkProduct() {
+        return uploadedFileWorkProduct;
+    }
+
+    /**
+     * @param uploadedFileWorkProduct the uploadedFileWorkProduct to set
+     */
+    public void setUploadedFileWorkProduct(UploadedFile uploadedFileWorkProduct) {
+        this.uploadedFileWorkProduct = uploadedFileWorkProduct;
     }
 }

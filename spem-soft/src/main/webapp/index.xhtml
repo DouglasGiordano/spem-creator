@@ -8,22 +8,32 @@
                 xmlns:porthal="http://xmlns.jcp.org/jsf/composite/porthal"
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <ui:define name="contentOne">
+
         <h:form enctype="multipart/form-data" style="padding: 2%">
+            <p:commandLink ajax="false" class="btn btn-success"
+                           actionListener="#{diagramBasicView.novoDiagrama()}"  update=":diagramSpem">
+                Novo <i class="icon-plus"></i>
+            </p:commandLink>
+            <br/>
+            <br/>
+
             <h3>1. Escolha o arquivo SPEM</h3>
             <p:fileUpload value="#{diagramBasicView.uploadedFile}" mode="simple"/>
             <br/>
             <br/>
 
             <h3>2. Clique em enviar para gerar o diagrama</h3>
-            <p:commandLink value="Enviar" ajax="false" class="btn btn-success"
-                           actionListener="#{diagramBasicView.upload}"  update=":diagramSpem"/>
+            <p:commandLink ajax="false" class="btn btn-success"
+                           actionListener="#{diagramBasicView.upload}"  update=":diagramSpem">
+                Enviar <i class="icon-upload"></i>
+            </p:commandLink>
         </h:form>
     </ui:define>
 
     <ui:define name="content">
 
         <h:form prependId="false" id="diagramSpem">
-            <p:diagram value="#{diagramBasicView.model}" id="diagrama" var="el" widgetVar="diagrama" style="height:400px; width: auto; background:#033649;border: #033649" styleClass="ui-widget-content" >
+            <p:diagram value="#{diagramBasicView.model}" id="diagrama" var="el" widgetVar="diagrama" style="height:700px; width: auto; background:#033649;border: #033649" styleClass="ui-widget-content" >
                 <f:facet name="element">
                     #{el}
                     <p:commandLink onclick="$('.bs-example-modal-sm').modal('show');" ajax="true"
@@ -39,8 +49,14 @@
                 <div class="modal-dialog modal-sm" role="document">
                     <div class="modal-content">
                         <h:panelGroup id="modalElement">
-                            <ui:include src="activity.xhtml" rendered="#{diagramBasicView.elementoAtual.class.name == 'Task'}">
-                            </ui:include>
+                            <h:panelGroup layout="block" rendered="#{diagramBasicView.task}">
+                                <ui:include src="activity.xhtml">
+                                </ui:include>
+                            </h:panelGroup>
+                            <h:panelGroup layout="block" rendered="#{diagramBasicView.workProduct}">
+                                <ui:include src="workProduct.xhtml">
+                                </ui:include>
+                            </h:panelGroup>
                         </h:panelGroup>
                     </div>
                 </div>
@@ -85,7 +101,7 @@
                 border-radius: 0px;
                 border: 1px solid transparent;
                 background-color: #468847;
-                color: #000000;
+                color: #ffffff;
             }
             .ui-diagram-element-artefatos {   
                 width:14em; 

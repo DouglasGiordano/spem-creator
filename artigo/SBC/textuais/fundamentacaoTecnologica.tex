@@ -1,0 +1,198 @@
+%==============================================================================
+\chapter{Métodos e Recursos}\label{metodosRecursos}
+%==============================================================================
+
+Neste capítulo apresentamos os materiais e métodos utilizados para o desenvolvimento da solução da ferramenta. Na \autoref{sec:praticasES} apresentamos o processo que estre trabalho utiliza para o desenvolvimento da ferramenta, bem com as abordagens utilizadas. Na \autoref{sec:sistemasDistribuidos} falamos sobre os sistemas distribuídos, e apresentamos e abordamos a arquitetura \textit{peer-to-peer}. Além de relatar na \autoref{sec:plataformaJXTA} a plataforma JXTA, uma solução genérica para implementação de \textit{peer-to-peer}.
+%-----------------------------------------------------------------------------
+
+\section{Práticas de Engenharia de \textit{Software}}\label{sec:praticasES}
+Para realizar o desenvolvimento do trabalho utilizamos algumas práticas de Engenharia de \textit{software}, como o Processo Unificado, \textit{StoryBoards} e histórias de usuários.
+
+\subsection{Processo Unificado}\label{sub:processoUnificado}
+O Processo Unificado é descrito por \citeonline{larman2007utilizando} como iterativo e incremental, visando a construção de \textit{software} orientado a objetos. De acordo com sua iteratividade é possível construir e refinar os artefatos de \textit{software} gerando incrementos. Além disso, \citeonline{larman2007utilizando} afirma que o Processo Unificado é muito flexível e aberto, incentivando a inclusão de práticas de outros métodos iterativos como \ac{xp}, \textit{Scrum}, entre outros.
+\citeonline{larman2007utilizando} destaca algumas práticas complementares importantes no Processo Unificado como:
+\begin{itemize}
+	\item enfrentar problemas de alto risco e valor nas primeiras iterações;
+	\item envolver continuamente os usuário nas avaliações e nos requisitos;
+	\item construir um arquitetura central coesa nas primeiras iterações;
+	\item verificar a qualidade periodicamente, realizar teste logo no início, com frequência e situações realistas;
+	\item aplicar casos de uso quando adequado;
+	\item modelar visualmente o \textit{software} (utilizar a \ac{uml});
+	\item gerenciar requisitos cuidadosamente. 
+\end{itemize}
+
+As características complementares relatas são utilizadas nas disciplinas que o Processo Unificado possui, as disciplinas são conjuntos de atividades, descrevemos agora brevemente as nove disciplinas \cite{larman2007utilizando}.
+
+\begin{itemize}
+	\item \textbf{Modelagem de negócio:} análise do projeto e análise de viabilidade, com grande interação entre o cliente e o fornecedor para que possa ser concretizada a extração dos requisitos por parte do fornecedor.
+	\item \textbf{Requisitos:} funcionalidades do sistema que podem ser descritas de forma escrita ou de caso de uso, para que o cliente também possa entender claramente o que o sistema se propõe a fazer.
+	\item \textbf{Projeto:} desenvolver uma visão arquitetural do sistema, o objetivo aqui também é identificar os principais requisitos.
+	\item \textbf{Implementação:} os modelos arquiteturais da fase anterior são codificados.
+	\item \textbf{Testes:} são criados planos de teste, acontece verificações e validações durante o desenvolvimento e os testes nos artefatos de \textit{software}.
+	\item \textbf{Implantação:} ocorre a instalação do sistema no ambiente de trabalho.
+	\item \textbf{Gestão de configuração e mudanças:} o desenvolvimento do software é acompanhado e controlado, bem como suas mudanças, para manter sua integridade.
+	\item \textbf{Gestão de projetos:} é atividade constante de gerenciamento do projeto, para manter o controle do que está se desenvolvendo bem como o tempo estimado, custos, etc. 
+	\item \textbf{Ambiente:} refere-se ao ambiente de trabalho, definindo tecnologias  e processos.
+\end{itemize}
+
+O processo Unificado organiza o trabalho em quatro fases segundo \citeonline{larman2007utilizando}. 
+\begin{itemize}
+	\item \textbf{Concepção:} tem como objetivo estabelecer uma visão básica do escopo do projeto e decidir se ele é viável ou não. Após isso, são definidos os principais requisitos, o planejamento do desenvolvimento e suas iterações;
+	\item \textbf{Elaboração:} destinada para o refinamento da visão estabelecida na concepção, implementação iterativa da arquitetura central, resolução dos altos riscos, identificação da maior parte dos requisitos e do escopo;
+	\item \textbf{Construção:} voltada para a implementação iterativa dos elementos com menor risco e preparação para implantação;
+	\item \textbf{Transição:} realização de testes e implantação.
+\end{itemize}
+
+No Processo Unificado a relação que existe das disciplinas com as fases, pode ser observada na \autoref{fig:processoUnificado}, onde em cada fase engloba várias disciplinas e consequentemente vários artefatos são gerados, além disso, é possível perceber o equilíbrio do trabalho das disciplinas entre as fases.
+
+\begin{figure}[htb]
+	\caption{Disciplinas e Fases do Processo Unificado.}\label{fig:processoUnificado}
+	\begin{center}
+		\includegraphics[scale=0.6]{img/up}
+	\end{center}
+	%\legend{Fonte: Adaptado de \citeonline[p. 131]{schach2009engenharia}}
+\end{figure}
+
+
+\subsection{\textit{StoryBoard}}\label{sub:storyBoard}
+
+\textit{Storyboards} são pequenas narrativas ilustradas e organizadas em série, com o propósito de expressar a interação de um ou mais personagens com um determinado cenário, e através disso contar uma história \cite{braga2013proposta}. 
+
+Na área de Engenharia de \textit{software}, \textit{storyBoard} é uma técnica utilizada para obter um panorama geral do sistema, identificando suas principais funcionalidades e os atores que interagem com ele, de acordo com a narrativa dos personagens. Além disso, é possível obter um melhor detalhamento dos requisitos, gerando uma documentação mais consistente e mitigando a sua duplicação \cite{storyBoardsmedeiros}.
+
+Elas são criadas do mesmo modo que histórias em quadrinhos, contando em forma de história como o usuário utiliza o \textit{software}, em quais ocasiões ele é utilizado, entre outras informações.
+
+\subsection{Histórias de Usuários}\label{sub:historiasUsuarios}
+
+As histórias de usuários descrevem em uma simples frase a visão do \textit{software} na perspectiva dos usuários, ou seja, relata as atividades que os usuários realizam como parte de seu trabalho. Ela é composta pelo \textbf{ator} que realiza uma ação, a própria \textbf{ação} e a \textbf{funcionalidade} que é o resultado na visão do ator \cite{historiasUsuarios2004}.
+
+As histórias de usuários são normalmente utilizadas nos métodos ágeis como \textit{Scrum} e \ac{xp} como artefatos primários, pois as histórias de usuários são uma definição de alto nível de um requisito, contendo apenas as informações substanciais para os desenvolvedores produzirem uma estimativa de esforço para desenvolvê-lo. Além da sua utilização nas abordagens ágeis, as histórias de usuários são utilizadas pelas equipes de desenvolvimento para apresentar aos clientes os requisitos de forma mais acessíveis e de fácil compreensão, pois elas abordam a sua visão \cite{historiasUsuarios2004}.
+
+Podemos visualizar na \autoref{fig:historiaUsuario} um exemplo de história de usuário, onde o cliente quer procurar itens para adicionar ao seu pedido. Utilizamos um destaque para as partes principais que a compõe.  
+
+\begin{figure}[htb]
+	\caption{Exemplo de histórias de usuários.}\label{fig:historiaUsuario}
+	\begin{center}
+		\includegraphics[scale=0.7]{img/historiaUsuario}
+	\end{center}
+	%\legend{Fonte: Adaptado de \citeonline[p. 131]{schach2009engenharia}}
+\end{figure}
+
+%-----------------------------------------------------------------------------
+\section{Arquitetura de sistemas distribuídos}\label{sec:sistemasDistribuidos}
+%-----------------------------------------------------------------------------
+
+\citeonline{tanenbaum2007sistemas} define sistemas distribuídos como uma coleção de computadores independentes entre si, que se apresenta ao usuário como um sistema único, mascarando sua heterogeneidade,  ja \citeonline{coulouris2007sistemas} definem como aquele no qual seus componentes (\textit{hardware e software}), localizados em computadores interligados em rede, se comunicam e coordenam suas ações, apenas trocando mensagens entre si. \citeonline{sommerville2007engenharia} complementa relatando que um sistema distribuído é aquele que as suas informações são processadas por diversos computadores de forma distribuída. Eles são formados por partes independentes que podem estar ou não interligadas, sendo que cada uma pode interagir com o usuário ou outras partes do sistema.
+
+\citeonline{coulouris2007sistemas} explicam as vantagens de usar uma abordagem distribuída para o desenvolvimento de sistemas, descrevemos as vantagens apresentadas pelo autor a seguir.
+\begin{itemize}
+	\item \textbf{Compartilhamento de recursos:} Os sistemas distribuídos permitem o compartilhamento de recursos que estão associados aos diferentes computadores da rede. O termo recurso abrange desde componentes de \textit{hardware}, como impressoras e discos rígidos, até entidades definidas como \textit{software}, como banco de dados e objetos de dados de todos os tipos.
+	\item \textbf{Abertura:} Os sistemas distribuídos são geralmente sistemas abertos, ou seja, são projetados em protocolos padrão e permitem que equipamentos de diferentes fabricantes possam ser combinados.
+	\item \textbf{Concorrência:} Os sistemas distribuídos permitem vários processos opera os mesmo tempo em diferentes computadores na rede. Esses processos podem se comunicar entre si durante a operação.
+	\item \textbf{Escalabilidade:} As capacidades dos sistemas distribuídos são escalonáveis, sendo possível melhorar as capacidades de um sistema, para isso, são adicionados novos recursos para atender as melhorias. 
+	\item \textbf{Tolerância a defeitos:} Com a disponibilidade de vários computadores é possível haver duplicação de informações, isso significa que os sistemas distribuídos são tolerantes a algumas falhas de hardware e software, tais falhas ocorrem pelo fornecimento de um serviço de má qualidade. Porém a completa dos serviços tende a ocorrer somente se houver falhas na rede.
+\end{itemize}
+Com tantas vantagens, os sistemas distribuídos possuem também desvantagem, elas são relatadas por \citeonline{sommerville2007engenharia} e estão descritas a seguir.
+\begin{itemize}
+	\item \textbf{Complexidade:} Os sistemas distribuídos são mais complexos que os sistemas centralizados. É mais difícil compreender suas propriedade e realizar testes, pois o sistema depende da capacidade da rede para realizar suas tarefas.
+	\item \textbf{Proteção:} Como eles podem ser acessados em diferentes computadores, o tráfego da rede pode estar sujeito a interceptações. Dessa maneira é mais difícil assegurar a integridade dos dados.
+	\item \textbf{Gerenciamento:} Os computadores que formam um sistema distribuído podem operar diferentes sistemas operacionais. Caso ocorra algum defeito em um deles, esse pode se propagar para os demais computadores do sistema.
+	\item \textbf{Imprevisibilidade:} O tempo de resposta para uma solicitação do usuário pode variar drasticamente, pois a resposta depende da carga total do sistema, bem como sua organização e carga de trabalho. 
+\end{itemize}
+
+Tendo conhecimento de suas vantagens e desvantagens, o desafio para a construção de sistemas distribuídos é conseguir aproveitar ao máximo as suas vantagens e minimizar ao máximo seus defeitos. Desta maneira apresentamos a seguir a arquitetura \textit{peer-to-peer} e os seus tipos.
+
+
+%-----------------------------------------------------------------------------
+%\subsection{Arquiteturas cliente-servidor}\label{sub:clienteServidor}
+%-----------------------------------------------------------------------------
+%\citeonline{sommerville2007engenharia} define uma arquitetura cliente-servidor como um conjunto de serviços que são fornecidos pelos servidores e um conjunto de clientes que utilizam esses serviços. Os clientes precisam estar informados se os servidores estão disponíveis, porém, os cliente não sabem da existência de outros clientes.
+%A \autoref{fig:clienteServidor} representa uma arquitetura cliente-servidor, sendo possível visualizar que os clientes e servidores são processos separados. \citeonline{sommerville2007engenharia} enfatiza, que quando se fala em cliente e servidor, está se referindo aos processos lógicos ao invés de computadores físicos.
+%\begin{figure}[htb]
+%	\caption{Sistema cliente-servidor.}\label{fig:clienteServidor}
+%	\begin{center}
+%		\includegraphics[scale=0.6]{img/clienteServidor}
+%	\end{center}
+	%\legend{Fonte: Adaptado de \citeonline[p. 131]{schach2009engenharia}}
+%\end{figure}
+
+%Segundo \citeonline{sommerville2007engenharia} a arquitetura cliente servidor mais simples é a arquitetura de duas camadas. Esta pode ser classificada de duas formas, o modelo cliente-magro e cliente-gordo.
+%Modelo cliente-magro: o cliente é responsável simplesmente por executar o \textit{software}.Todo o processo de gerenciamento dos dados e da aplicação são realizados no servidor
+%Modelo cliente-gordo: o cliente implementa a lógica da aplicação e as interações com o usuário. O servidor se encarrega pelo gerenciamento dos dados.
+%Podemos visualizar na \autoref{fig:modeloMagroGordo} as diferenças descritas do modelo cliente-magro para o cliente-gordo.
+%\begin{figure}[htb]
+%	\caption{Clientes magros e gordos.}\label{fig:modeloMagroGordo}
+%	\begin{center}
+%		\includegraphics[scale=0.4]{img/modeloMagroGordo}
+%	\end{center}
+%	\legend{Fonte: Adaptado de \citeonline[p. 181]{sommerville2007engenharia}}
+%\end{figure}
+
+%-----------------------------------------------------------------------------
+\subsection{Arquiteturas \textit{peer-to-peer}}\label{sub:peerToPeer}
+%-----------------------------------------------------------------------------
+
+\citeonline{kamienski2005colaboraccao} afirmam que os sistemas \textit{peer-to-peer} não depende de uma organização central ou hierárquica, por dispor aos seus integrantes as mesmas capacidades e responsabilidades. Sendo assim qualquer dispositivo pode acessar os recursos dos outros, sem um controle centralizado. \citeonline{sommerville2007engenharia} complementa afirmando que os protocolos para realizar a comunicação através dos nós, estão embutidos na aplicação, então cada nó deve realizar uma cópia da aplicação. Em comparação a arquitetura cliente-servidor onde os clientes não tem conhecimento dos outros clientes, nas arquiteturas \textit{peer-to-peer} todo nó na rede pode estar ciente de qualquer outro nó.
+
+O grande objetivo da arquitetura \textit{peer-to-peer} apresentado por \citeonline{coulouris2007sistemas} é explorar os recursos de um grande número de computadores, afim de executar uma tarefa. Desta maneira, o mesmo autor apresenta algumas características que os sistemas \textit{peer-to-peer} compartilham.
+\begin{itemize}
+	\item Garantia de que cada usuário contribua com recursos para o sistema.
+	\item Independente das diferenças entre os recursos, todos os nós tem a mesma capacidades e responsabilidade funcionais.
+	\item O seu funcionamento não depende da existência de um serviço centralizado.
+	\item Pode promover um determinado grau de anonimato para os provedores e usuários de recursos.
+	\item Um problema para o funcionamento eficiente, é a escolha de um algoritmo  para o arranjo de dados em muitos nós e posterior acesso a eles, de maneira a balancear a carga de trabalho e garantir a disponibilidade sem adicionar sobrecargas indevidas. 
+\end{itemize}
+
+\citeonline{sommerville2007engenharia} destaca a perspectiva da arquitetura lógica das aplicações \textit{peer-to-peer}, que são divididas em descentralizadas e semicentralizadas. 
+Em uma arquitetura descentralizada, os nós da rede não são apenas elementos funcionais, cada nó tem o mesmo nível. Os nós são ainda responsáveis pela comunicação entre eles. Ilustramos na \autoref{fig:peerToPeerDescentralizada} um nó n1 precisa buscar um arquivo no nó n7, ele percorrer o caminho destacado, usando os outros nós como fonte de comunicação para buscar o arquivo \cite{sommerville2007engenharia,kamienski2005colaboraccao}.
+
+\begin{figure}[htb]
+	\caption{Arquitetura \textit{peer-to-peer} descentralizada.}\label{fig:peerToPeerDescentralizada}
+	\begin{center}
+		\includegraphics[scale=0.6]{img/peerToPeerDescentralizada}
+	\end{center}
+\end{figure}
+
+Em uma arquitetura semicentralizada há diferença de relevância entre os nós. O servidor tem como objetivo auxiliar a estabelecer a conexão entre os pares da rede ou coordenar os resultados de uma computação. A \autoref{fig:peerToPeerSemi} representa um sistema de mensagens instantâneas, para encontrar os outros nós disponíveis, o nó se comunica (representado pela linha tracejada) com o servidor. Após ter essa informação os nós podem estabelecer conexões diretas entre eles, sem a necessidade de contactar o servidor. 
+\begin{figure}[htb]
+	\caption{Arquitetura \textit{peer-to-peer} semicentralizada.}\label{fig:peerToPeerSemi}
+	\begin{center}
+		\includegraphics[scale=0.6]{img/peerToPeerSemicentralizada}
+	\end{center}
+	\legend{Fonte: Adaptado de \citeonline[p. 189]{sommerville2007engenharia}}
+\end{figure}
+
+
+
+%-----------------------------------------------------------------------------
+\section{Plataforma JXTA}\label{sec:plataformaJXTA}
+%-----------------------------------------------------------------------------
+Segundo \citeonline{jxta2015} JXTA é uma plataforma de código aberto independente, sendo uma solução genérica para plataforma \textit{peer-to-peer}. Ela possui um conjunto de protocolos para conexões de quaisquer dispositivos de rede, do celular ao servidor. Esses protocolos são independente do sistema operacional e da linguagem de programação, eles permitem aos desenvolvedores criar e implantar serviços e aplicações interoperáveis. Os protocolos JXTA padronizam a maneira em que os pares:
+\begin{itemize}
+	\item Descobrem um ao outro ;
+	\item Auto-organizar-se em grupos de pares;
+	\item Descobrir recursos de rede;
+	\item Comunicar uns com os outros;
+	\item Monitorar um ao outro.
+\end{itemize}
+
+\subsection{Arquitetura JXTA}\label{sub:arquiteturaJXTA}
+ A arquitetura é dividida em três camadas como ilustrado na , Plataforma, Serviços e Aplicações.
+ \begin{figure}[htb]
+ 	\caption{Arquitetura de camadas JXTA.}\label{fig:jxtaArquitetura}
+ 	\begin{center}
+ 		\includegraphics[scale=0.4]{img/jxtaArquitetura}
+ 	\end{center}
+ 	\legend{Fonte: Adaptado de \citeonline{juniorcompartilhamento}}
+ \end{figure}
+ 
+\textbf{Plataforma}: Essa camada contém as funcionalidades básicas e essenciais que são comuns a uma rede \textit{peer-to-peer} que são,  incluir nós, grupos de pares, descoberta de nós, comunicação, monitoramento e primitivas de segurança associadas.\cite{juniorcompartilhamento, jxta2015}
+
+\textbf{Serviços}: Essa camada possui serviços de rede que podem não ser plenamente necessários para as redes \textit{peer-to-peer} operar, mas são comuns e desejáveis. Como busca e indexação de arquivos, sistema de armazenamento, compartilhamento de arquivos, serviços de autenticação entre outros.\cite{juniorcompartilhamento, jxta2015}
+
+\textbf{Aplicações}: Essa camada realiza a integração com as aplicações efetivamente, fornecendo serviços como mensagens instantâneas, compartilhamento de documentos e recursos, aplicação de correio eletrônico entre muitos outros.\cite{juniorcompartilhamento, jxta2015}
+%-----------------------------------------------------------------------------
+\section{Considerações do Capítulo}\label{sec:conclusaoMetodosRecursos}
+%-----------------------------------------------------------------------------
+Neste capítulo apresentamos métodos e recursos que nos auxiliam no desenvolvimento da ferramenta, como o Processo Unificado apresentado na \autoref{sec:praticasES} que guia o desenvolvimento da ferramenta, as técnicas de \textit{storyBoard} na seção \autoref{sub:storyBoard} e as histórias de usuários na \autoref{sub:historiasUsuarios} utilizadas na fase de concepção do Processo Unificado. Além disso na \autoref{sec:sistemasDistribuidos} apresentamos os sistemas distribuídos e a arquitetura \textit{peer-to-peer} na \autoref{sub:peerToPeer}. Além disso, apresentamos na \autoref{sec:plataformaJXTA} uma plataforma para implementação de redes \textit{peer-to-peer} que independe de linguagem de programação.
+

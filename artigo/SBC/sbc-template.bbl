@@ -1,0 +1,105 @@
+\begin{thebibliography}{}
+
+\bibitem[Abad et~al. 2012]{13abad:2012}
+Abad, Z. S.~H., Alipour, A., and Ramsin, R. (2012).
+\newblock Enhancing tool support for situational engineering of agile
+  methodologies in eclipse.
+\newblock In {\em SERA (selected papers)}, pages 141--152. Springer.
+
+\bibitem[Ayora et~al. 2016]{19ayora:2016}
+Ayora, C., Torres, V., de~la Vara, J.~L., and Pelechano, V. (2016).
+\newblock Variability management in process families through change patterns.
+\newblock {\em Information and Software Technology}, 74:86--104.
+
+\bibitem[Blum et~al. 2015]{15blum:2015}
+Blum, F.~R., Simmonds, J., and Bastarrica, M.~C. (2015).
+\newblock Software process line discovery.
+\newblock In {\em Proceedings of the 2015 International Conference on Software
+  and System Process}, pages 127--136. ACM.
+
+\bibitem[Casare et~al. 2016]{16casare:2016}
+Casare, S., Ziadi, T., Brand{\~a}o, A. A.~F., and Guessoum, Z. (2016).
+\newblock Meduse: an approach for tailoring software development process.
+\newblock In {\em Engineering of Complex Computer Systems (ICECCS), 2016 21st
+  International Conference on}, pages 197--200. IEEE.
+
+\bibitem[Chaghrouchni et~al. 2014]{18chaghrouchni:2014}
+Chaghrouchni, T., Kabbaj, I.~M., and Bakkoury, Z. (2014).
+\newblock Towards dynamic adaptation of the software process.
+\newblock In {\em Intelligent Systems: Theories and Applications (SITA-14),
+  2014 9th International Conference on}, pages 1--7. IEEE.
+
+\bibitem[Ellner et~al. 2012]{10ellner:2012}
+Ellner, R., Al-Hilank, S., Jung, M., Kips, D., and Philippsen, M. (2012).
+\newblock An integrated tool chain for software process modeling and execution.
+\newblock In {\em Proceedings of the European Conference on Modelling
+  Foundations and Applications}, pages 73--82.
+
+\bibitem[Gazel et~al. 2012]{7gazel:2012}
+Gazel, S., Sezer, E.~A., and Tarhan, A. (2012).
+\newblock An ontology based infrastructure to support cmmi-based software
+  process assessment.
+\newblock {\em Gazi University Journal of Science}, 25(1):155--164.
+
+\bibitem[Hurtado et~al. 2013]{8hurtado:2013}
+Hurtado, J.~A., Bastarrica, M.~C., Ochoa, S.~F., and Simmonds, J. (2013).
+\newblock Mde software process lines in small companies.
+\newblock {\em Journal of Systems and Software}, 86(5):1153--1171.
+
+\bibitem[Hurtado~Alegr{\'\i}a et~al. 2013a]{6hurtado:2013}
+Hurtado~Alegr{\'\i}a, J.~A., Bastarrica, M.~C., and Bergel, A. (2013a).
+\newblock Avispa: a tool for analyzing software process models.
+\newblock {\em Journal of Software: Evolution and Process}, 26(4):434--450.
+
+\bibitem[Hurtado~Alegr{\'\i}a et~al. 2013b]{11hurtado:2013}
+Hurtado~Alegr{\'\i}a, J.~A., Bastarrica, M.~C., Quispe, A., and Ochoa, S.~F.
+  (2013b).
+\newblock Mde-based process tailoring strategy.
+\newblock {\em Journal of Software: Evolution and Process}, 26(4):386--403.
+
+\bibitem[Kuhrmann et~al. 2014]{1kuhrmann:2014}
+Kuhrmann, M., Kalus, G., and Then, M. (2014).
+\newblock The process enactment tool framework—transformation of software
+  process models to prepare enactment.
+\newblock {\em Science of Computer Programming}, 79:172--188.
+
+\bibitem[Portela et~al. 2014]{9portela:2014}
+Portela, C., Vasconcelos, A., Oliveira, S., Silva, A., and Elder, S. (2014).
+\newblock Spider-pe: A set of support tools to software process enactment.
+\newblock In {\em Proceedings of the 9th International Conference on Software
+  Engineering Advances}.
+
+\bibitem[Rouill{\'e} et~al. 2012]{2rouille:2012}
+Rouill{\'e}, E., Combemale, B., Barais, O., Touzet, D., and J{\'e}z{\'e}quel,
+  J.-M. (2012).
+\newblock Leveraging cvl to manage variability in software process lines.
+\newblock In {\em Software Engineering Conference (APSEC), 2012 19th
+  Asia-Pacific}, volume~1, pages 148--157. IEEE.
+
+\bibitem[Rouill{\'e} et~al. 2013]{14rouille:2013}
+Rouill{\'e}, E., Combemale, B., Barais, O., Touzet, D., and J{\'e}z{\'e}quel,
+  J.-M. (2013).
+\newblock Integrating software process reuse and automation.
+\newblock In {\em Software Engineering Conference (APSEC), 2013 20th
+  Asia-Pacific}, volume~1, pages 380--387. IEEE.
+
+\bibitem[Santos et~al. 2015]{17santos:2015}
+Santos, R., Oliveira, T.~C., et~al. (2015).
+\newblock Mining software development process variations.
+\newblock In {\em Proceedings of the 30th Annual ACM Symposium on Applied
+  Computing}, pages 1657--1660. ACM.
+
+\bibitem[Silvestre et~al. 2014]{3silvestre:2014}
+Silvestre, L., Bastarrica, M.~C., and Ochoa, S.~F. (2014).
+\newblock A model-based tool for generating software process model tailoring
+  transformations.
+\newblock In {\em Model-Driven Engineering and Software Development
+  (MODELSWARD), 2014 2nd International Conference on}, pages 533--540. IEEE.
+
+\bibitem[Simmonds et~al. 2012]{12simmonds:2012}
+Simmonds, J., Bastarrica, M.~C., Silvestre, L., and Quispe, A. (2012).
+\newblock Modeling variability in software process models.
+\newblock {\em Computer Science Department, Universidad de Chile, Santiago,
+  Chile}.
+
+\end{thebibliography}

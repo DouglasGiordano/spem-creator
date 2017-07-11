@@ -19,11 +19,13 @@ public class Task extends Elemento {
     private List<Elemento> entradas;
     private List<Elemento> saidas;
     private Elemento responsavel;
+    private List<Elemento> outrosResponsaveis;
 
     public Task(String descricao, ContentElement contentElement) {
         super(descricao, contentElement);
         entradas = new ArrayList<>();
         saidas = new ArrayList<>();
+        outrosResponsaveis = new ArrayList<>();
     }
 
     /**
@@ -80,5 +82,19 @@ public class Task extends Elemento {
      */
     public void setFinalizado(boolean finalizado) {
         this.finalizado = finalizado;
+    }
+
+    /**
+     * @return the outrosResponsaveis
+     */
+    public List<Elemento> getOutrosResponsaveis() {
+        return outrosResponsaveis;
+    }
+
+    /**
+     * @param outrosResponsaveis the outrosResponsaveis to set
+     */
+    public void setOutrosResponsaveis(List<Elemento> outrosResponsaveis) {
+        this.outrosResponsaveis = outrosResponsaveis;
     }
 }

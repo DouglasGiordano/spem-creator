@@ -35,6 +35,12 @@ public class ContentElement {
     
     @XStreamImplicit(itemFieldName = "ResponsibleFor")
     private List<String> responsibleFor;
+    
+    @XStreamImplicit(itemFieldName = "PerformedBy")
+    private List<String> performedBy;
+    
+    @XStreamImplicit(itemFieldName = "AdditionallyPerformedBy")
+    private List<String> additionallyPerformedBy;
 
     @XStreamImplicit(itemFieldName = "MandatoryInput")
     private List<String> mandatoryInput;
@@ -152,5 +158,33 @@ public class ContentElement {
      */
     public void setResponsibleFor(List<String> responsibleFor) {
         this.responsibleFor = responsibleFor;
+    }
+
+    /**
+     * @return the performedBy
+     */
+    public List<String> getPerformedBy() {
+        return performedBy;
+    }
+
+    /**
+     * @param performedBy the performedBy to set
+     */
+    public void setPerformedBy(List<String> performedBy) {
+        this.performedBy = performedBy;
+    }
+
+    /**
+     * @return the additionallyPerformedBy
+     */
+    public List<String> getAdditionallyPerformedBy() {
+        return additionallyPerformedBy;
+    }
+
+    /**
+     * @param additionallyPerformedBy the additionallyPerformedBy to set
+     */
+    public void setAdditionallyPerformedBy(List<String> additionallyPerformedBy) {
+        this.additionallyPerformedBy = additionallyPerformedBy;
     }
 }

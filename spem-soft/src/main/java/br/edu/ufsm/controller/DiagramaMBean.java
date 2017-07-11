@@ -119,9 +119,13 @@ public class DiagramaMBean implements Serializable {
                 model.connect(createConnection(elemento.getElementoDiagrama().getEndPoints().get(1),
                         saida.getElementoDiagrama().getEndPoints().get(1), "Saida"));
             }
+            for (Elemento responsavel : elemento.getOutrosResponsaveis()) {
+                model.connect(createConnection(responsavel.getElementoDiagrama().getEndPoints().get(3),
+                        elemento.getElementoDiagrama().getEndPoints().get(3), "Responsável"));
+            }
             if (elemento.getResponsavel() != null) {
-                model.connect(createConnection(elemento.getElementoDiagrama().getEndPoints().get(2),
-                        elemento.getResponsavel().getElementoDiagrama().getEndPoints().get(2), "Responsável"));
+                model.connect(createConnection(elemento.getResponsavel().getElementoDiagrama().getEndPoints().get(2),
+                        elemento.getElementoDiagrama().getEndPoints().get(2), "Responsável"));
 
             }
 
@@ -165,10 +169,17 @@ public class DiagramaMBean implements Serializable {
             }
 
             for (Elemento role : roles) {
-                if (role.getContentElement().getResponsibleFor() != null) {
-                    for (String atividadeRole : role.getContentElement().getResponsibleFor()) {
-                        if (tarefa.getContentElement().getId().equalsIgnoreCase(atividadeRole)) {
+                if (tarefa.getContentElement().getPerformedBy() != null) {
+                    for (String atividadeRole : tarefa.getContentElement().getPerformedBy()) {
+                        if (role.getContentElement().getId().equalsIgnoreCase(atividadeRole)) {
                             tarefa.setResponsavel(role);
+                        }
+                    }
+                }
+                if (tarefa.getContentElement().getAdditionallyPerformedBy() != null) {
+                    for (String atividadeRole : tarefa.getContentElement().getAdditionallyPerformedBy() ) {
+                        if (role.getContentElement().getId().equalsIgnoreCase(atividadeRole)) {
+                            tarefa.getOutrosResponsaveis().add(role);
                         }
                     }
                 }
@@ -199,10 +210,8 @@ public class DiagramaMBean implements Serializable {
     }
 
     public void uploadWorkProduct() throws UnsupportedEncodingException {
-        byte[] bytes = uploadedFile.getContents();
-
-        File outputFile = new File(uploadedFile.getFileName());
-
+        byte[] bytes = uploadedFileWorkProduct.getContents();
+        File outputFile = new File(uploadedFileWorkProduct.getFileName());
         try (FileOutputStream outputStream = new FileOutputStream(outputFile);) {
 
             outputStream.write(bytes);  //write the bytes and your done. 
@@ -213,8 +222,7 @@ public class DiagramaMBean implements Serializable {
         ((WorkProduct) elementoAtual).setDocumento(outputFile);
         FacesContext.getCurrentInstance().addMessage(
                 null, new FacesMessage("Upload completo",
-                        "O arquivo " + uploadedFile.getFileName() + " foi salvo!"));
-        gerarDiagramaSpem();
+                        "O arquivo " + uploadedFileWorkProduct.getFileName() + " foi salvo!"));
     }
 
     public void downloadDocumentoWorkProduct() {

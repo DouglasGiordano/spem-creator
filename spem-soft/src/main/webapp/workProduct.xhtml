@@ -10,22 +10,27 @@
         <p>
             #{diagramBasicView.elementoAtual.pequenaDescricao}
         </p>
-        <p>1. Escolha um arquivo para anexar no workproduct</p>
-        <p:fileUpload value="#{diagramBasicView.uploadedFileWorkProduct}" mode="simple"/>
-        <br/>
-        <br/>
+        <h:form enctype="multipart/form-data">
+            <p>1. Escolha um arquivo para anexar no workproduct</p>
+            <p:fileUpload value="#{diagramBasicView.uploadedFileWorkProduct}" mode="simple"/>
+            <br/>
+            <br/>
 
-        <p>2. Clique em enviar</p>
-        <p:commandLink ajax="true" class="btn btn-success"
-                       actionListener="#{diagramBasicView.uploadWorkProduct}"  update="downloadWorkProduct">
-            Enviar <i class="icon-upload"></i>
-        </p:commandLink>
-        <h:panelGroup layout="block" id="downloadWorkProduct">
-            <p>3. Agora pode efetuar o download</p>
-            <p:commandLink class="btn btn-success" immediate="true" id="btDownloadXMLCC" ajax="false"
-                           actionListener="#{diagramBasicView.downloadDocumentoWorkProduct()}">
-                Download <i class="icon-download"></i>
-            </p:commandLink>  
-        </h:panelGroup>
+            <p>2. Clique em enviar</p>
+            <p:commandLink ajax="false" class="btn btn-success"
+                           actionListener="#{diagramBasicView.uploadWorkProduct}"  update="downloadWorkProduct">
+                Enviar <i class="icon-upload"></i>
+            </p:commandLink>
+
+        </h:form>
+        <h:form prependId="false">
+            <h:panelGroup layout="block" id="downloadWorkProduct">
+                <p>3. Agora pode efetuar o download</p>
+                <p:commandLink class="btn btn-success" immediate="true" id="btDownloadXMLCC" ajax="false"
+                               actionListener="#{diagramBasicView.downloadDocumentoWorkProduct()}">
+                    Download <i class="icon-download"></i>
+                </p:commandLink>  
+            </h:panelGroup>
+        </h:form>
     </div>
 </ui:composition>

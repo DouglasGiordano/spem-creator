@@ -1,0 +1,90 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11/07/2017, 19:25:23
+    Author     : douglas
+*/
+
+
+
+.ui-diagram-element {   
+    width:14em; 
+    height:4em;     
+    font-size: 14px;
+    line-height:4em;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+    border: 1px solid transparent;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.ui-diagram-element-atividade {   
+    width:14em; 
+    height:4em;     
+    font-size: 14px;
+    line-height:4em;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+    border-radius: 0px;
+    border: 1px solid transparent;
+    background-color: #ffffff;
+    color: #000000;
+}
+.ui-diagram-element-atividade-finalizada {   
+    width:14em; 
+    height:4em;     
+    font-size: 14px;
+    line-height:4em;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+    border-radius: 0px;
+    border: 1px solid transparent;
+    background-color: #468847;
+    color: #ffffff;
+}
+.ui-diagram-element-artefatos {   
+    width:14em; 
+    height:4em;     
+    font-size: 14px;
+    line-height:4em;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    border: 1px solid transparent;
+    background-color: #b94a48;
+    color: #ffffff;
+}
+.ui-diagram-element-papeis {   
+    width:10em; 
+    height:4em;     
+    font-size: 14px;
+    line-height:4em;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background-color: #279188;
+    color: #ffffff;
+}
+
+.ui-diagram-success {
+    background-color: #9CB071;
+    color: #ffffff;
+    border-color: #7ab02c;
+}
+
+.ui-diagram-fail {
+    background-color: #C34A2C;
+    color: #ffffff;
+}
+
+.flow-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #816A51;
+}

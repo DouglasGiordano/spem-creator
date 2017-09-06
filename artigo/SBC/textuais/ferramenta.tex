@@ -77,16 +77,23 @@ Na subseção \ref{subsection:arquitetura} é apresentado a arquitetura do softw
 \subsubsection{Arquitetura}\label{subsection:arquitetura}
 A figura \ref{figura:figuraArquitetura} apresenta os principais pacotes envolvidos na geração da estrutura para controlar a execução de processos. Os pacotes model e diagram estão envolvidos com as regras de negócio do software. Os pacotes parse e converter estão envolvidos com a conversão do modelo SPEM representado em XML para objetos no Java em tempo de execução do software.
 O pacote controler tem como responsabilidade utilizar todos os demais pacotes oferecendo uma interface para o pacote view executar requisições do usuário. 
+
 \begin{figure}[!htb]
 	\caption{Arquitetura}
 	\label{figura:figuraArquitetura}
 	\centering
 	\includegraphics[width=1\textwidth]{img/ferramenta_arquitetura.png}
 \end{figure}
-
 \subsubsection{Diagrama de Classes}\label{subsection:classes}
+Na figura \ref{figura:diagramaclasses} é apresentado o diagrama de classes, constituído das principais classes envolvidas na construção do software e suas relações.
 
-Na figura \ref{figura:diagramaclasses} é apresentado o diagrama de classes, constituído das principais classes envolvidas na construção do software.
+A classe Diagrama do pacote diagram é utilizada para criar as conexões, pesquisar os elementos extraídos do arquivo SPEM e liga-los.
+
+A classe ParseXML é responsável pela extração dos elementos utilizados pela classe Diagrama. Esses elementos são extraídos seguindo a estrutura do arquivo SPEM gerado pela ferramenta EPF Composer. Essa estrutura está modelada no pacote model, onde as classes ContentElement, ContentPackage, MethodPackage, MethodLibrary e MethodPlugin representam as tags descritas no arquivo SPEM.
+
+As classes Task, WorkProduct e Elemento são a estrutura no qual utilizamos para gerar o diagrama, onde o diagrama pode ser constituído de um conjunto de objetos instanciados de cada uma dessas classes.
+
+Por fim a classe DiagramaMBean é encarregada de controlar as requisições do usuário feitas nas páginas. Essa classe utiliza a tecnologia de gerenciamento de beans, no qual possibilita a ligação da interface com as páginas da visualização.
 
 \begin{figure}[!htb]
 	\caption{Diagrama de Classes}

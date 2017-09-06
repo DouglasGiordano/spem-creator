@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.7.11)  11 JUL 2017 22:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.7.11)  28 AUG 2017 20:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -580,106 +580,114 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <13> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
 )
-(./textuais/fundamentacaoTeorica.tex) (./textuais/trabalhosRelacionados.tex
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 13.
+(./textuais/fundamentacaoTeorica.tex [1
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 9.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 13.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 9.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 16.
+(Font)              <7> on input line 25.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 16.
- [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 40.
+(Font)              <5> on input line 25.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 30.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 40.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 30.
 
+
+pdfTeX warning: /usr/bin/pdflatex (file ./img/spemNiveis.pdf): PDF inclusion: f
+ound PDF version <1.6>, but at most version <1.5> allowed
+<img/spemNiveis.pdf, id=12, 745.78625pt x 438.63875pt>
+File: img/spemNiveis.pdf Graphic file (type pdf)
+
+<use img/spemNiveis.pdf>
+Package pdftex.def Info: img/spemNiveis.pdf used on input line 32.
+(pdftex.def)             Requested size: 372.89221pt x 219.31883pt.
+) (./textuais/trabalhosRelacionados.tex [2] [3 <./img/spemNiveis.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./img/GrafAno.pdf): PDF inclusion: foun
 d PDF version <1.6>, but at most version <1.5> allowed
-<img/GrafAno.pdf, id=13, 602.25pt x 372.39125pt>
+<img/GrafAno.pdf, id=23, 602.25pt x 372.39125pt>
 File: img/GrafAno.pdf Graphic file (type pdf)
  <use img/GrafAno.pdf>
 Package pdftex.def Info: img/GrafAno.pdf used on input line 42.
 (pdftex.def)             Requested size: 361.35278pt x 223.43646pt.
- [2 <./img/GrafAno.pdf>]
+ [4 <./img/GrafAno.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./img/GrafVeiculo.pdf): PDF inclusion: 
 found PDF version <1.6>, but at most version <1.5> allowed
-<img/GrafVeiculo.pdf, id=20, 602.25pt x 372.39125pt>
+<img/GrafVeiculo.pdf, id=29, 602.25pt x 372.39125pt>
 File: img/GrafVeiculo.pdf Graphic file (type pdf)
  <use img/GrafVeiculo.pdf>
 Package pdftex.def Info: img/GrafVeiculo.pdf used on input line 52.
 (pdftex.def)             Requested size: 361.35278pt x 223.43646pt.
 
-[3 <./img/GrafVeiculo.pdf>]
+[5 <./img/GrafVeiculo.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4])
-(./textuais/ferramenta.tex [5]
-<img/ferramenta_arquitetura.png, id=32, 695.59875pt x 536.0025pt>
+ [6])
+(./textuais/ferramenta.tex [7] [8]
+<img/ferramenta_arquitetura.png, id=45, 695.59875pt x 536.0025pt>
 File: img/ferramenta_arquitetura.png Graphic file (type png)
 
 <use img/ferramenta_arquitetura.png>
-Package pdftex.def Info: img/ferramenta_arquitetura.png used on input line 84.
+Package pdftex.def Info: img/ferramenta_arquitetura.png used on input line 85.
 (pdftex.def)             Requested size: 426.79135pt x 328.86668pt.
- [6]
-<img/ferramenta_diagrama_classes.png, id=37, 2128.95375pt x 1117.92656pt>
+
+<img/ferramenta_diagrama_classes.png, id=47, 2128.95375pt x 1117.92656pt>
 File: img/ferramenta_diagrama_classes.png Graphic file (type png)
 
 <use img/ferramenta_diagrama_classes.png>
 Package pdftex.def Info: img/ferramenta_diagrama_classes.png used on input line
- 95.
+ 102.
 (pdftex.def)             Requested size: 426.79135pt x 224.11015pt.
-) (./textuais/resultados.tex
-<img/ferramenta_selecao_arquivo.png, id=38, 602.25pt x 307.1475pt>
+ [9 <./img/ferramenta_arquitetura.png>]) (./textuais/resultados.tex
+<img/ferramenta_selecao_arquivo.png, id=52, 602.25pt x 307.1475pt>
 File: img/ferramenta_selecao_arquivo.png Graphic file (type png)
 
 <use img/ferramenta_selecao_arquivo.png>
 Package pdftex.def Info: img/ferramenta_selecao_arquivo.png used on input line 
 11.
 (pdftex.def)             Requested size: 426.79135pt x 217.67319pt.
-
-<img/ferramenta_diagrama_gerado.png, id=39, 607.26875pt x 347.2975pt>
+ [10 <./img/ferramenta_diagrama_classes.png> <./img/ferramenta_selecao_arquivo.
+png>]
+<img/ferramenta_diagrama_gerado.png, id=57, 607.26875pt x 347.2975pt>
 File: img/ferramenta_diagrama_gerado.png Graphic file (type png)
 
 <use img/ferramenta_diagrama_gerado.png>
 Package pdftex.def Info: img/ferramenta_diagrama_gerado.png used on input line 
 20.
 (pdftex.def)             Requested size: 426.79135pt x 244.08696pt.
-) (./textuais/conclusao.tex [7 <./img/ferramenta_arquitetura.png>]) (./sbc-temp
-late.bbl [8 <./img/ferramenta_diagrama_classes.png> <./img/ferramenta_selecao_a
-rquivo.png>] [9 <./img/ferramenta_diagrama_gerado.png>]) [10] (./sbc-template.a
-ux) ) 
+) (./textuais/conclusao.tex)
+(./sbc-template.bbl [11 <./img/ferramenta_diagrama_gerado.png>] [12]) [13]
+(./sbc-template.aux) ) 
 Here is how much of TeX's memory you used:
- 3500 strings out of 494925
- 47850 string characters out of 6180251
- 124399 words of memory out of 5000000
- 6696 multiletter control sequences out of 15000+600000
+ 3510 strings out of 494925
+ 48061 string characters out of 6180251
+ 124468 words of memory out of 5000000
+ 6705 multiletter control sequences out of 15000+600000
  25281 words of font info for 49 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  39i,14n,28p,1916b,312s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
-tmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sbc-template.pdf (10 pages, 496771 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.en
+c}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
+/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on sbc-template.pdf (13 pages, 626348 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
+ 96 PDF objects out of 1000 (max. 8388607)
+ 60 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

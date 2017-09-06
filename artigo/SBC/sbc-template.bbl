@@ -69,6 +69,11 @@ Kuhrmann, M., Kalus, G., and Then, M. (2014).
   process models to prepare enactment.
 \newblock {\em Science of Computer Programming}, 79:172--188.
 
+\bibitem[Larman 2007]{larman2007utilizando}
+Larman, C. (2007).
+\newblock {\em Utilizando UML e Padr{\~o}es}.
+\newblock Bookman.
+
 \bibitem[Portela et~al. 2014]{9portela:2014}
 Portela, C., Vasconcelos, A., Oliveira, S., Silva, A., and Elder, S. (2014).
 \newblock Spider-pe: A set of support tools to software process enactment.
@@ -107,5 +112,10 @@ Simmonds, J., Bastarrica, M.~C., Silvestre, L., and Quispe, A. (2012).
 \newblock Modeling variability in software process models.
 \newblock {\em Computer Science Department, Universidad de Chile, Santiago,
   Chile}.
+
+\bibitem[Sommerville 2007]{sommerville2007engenharia}
+Sommerville, I. (2007).
+\newblock {\em Engenharia de software}, volume~8.
+\newblock Addison Wesley S{\~a}o Paulo.
 
 \end{thebibliography}

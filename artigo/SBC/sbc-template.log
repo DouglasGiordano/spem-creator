@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.6.23)  8 SEP 2017 01:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.6.23)  10 SEP 2017 01:18
 entering extended mode
 **./sbc-template.tex
 (sbc-template.tex
@@ -634,53 +634,53 @@ File: img/ferramenta_arquitetura.png Graphic file (type png)
 <use img/ferramenta_arquitetura.png>
 Package pdftex.def Info: img/ferramenta_arquitetura.png used on input line 72.
 (pdftex.def)             Requested size: 241.2758pt x 105.01707pt.
- [7]
-<img/ferramenta_diagrama_classes.png, id=39, 2070.98718pt x 1059.20718pt>
+
+<img/ferramenta_diagrama_classes.png, id=35, 2070.98718pt x 1059.20718pt>
 File: img/ferramenta_diagrama_classes.png Graphic file (type png)
 
 <use img/ferramenta_diagrama_classes.png>
 Package pdftex.def Info: img/ferramenta_diagrama_classes.png used on input line
  84.
 (pdftex.def)             Requested size: 414.19011pt x 211.83768pt.
-) (textuais/resultados.tex
-<img/ferramenta_selecao_arquivo.png, id=40, 602.25pt x 275.0275pt>
+ [7 <./img/ferramenta_arquitetura.png>]) (textuais/resultados.tex
+<img/ferramenta_selecao_arquivo.png, id=41, 602.25pt x 275.0275pt>
 File: img/ferramenta_selecao_arquivo.png Graphic file (type png)
 
 <use img/ferramenta_selecao_arquivo.png>
 Package pdftex.def Info: img/ferramenta_selecao_arquivo.png used on input line 
 11.
 (pdftex.def)             Requested size: 240.89572pt x 110.00905pt.
- [8 <./img/ferramenta_arquitetura.png> <./img/ferramenta_diagrama_classes.png>]
 
-<img/ferramenta_diagrama_gerado.png, id=46, 607.26875pt x 291.0875pt>
+<img/ferramenta_diagrama_gerado.png, id=42, 607.26875pt x 291.0875pt>
 File: img/ferramenta_diagrama_gerado.png Graphic file (type png)
 
 <use img/ferramenta_diagrama_gerado.png>
 Package pdftex.def Info: img/ferramenta_diagrama_gerado.png used on input line 
 20.
 (pdftex.def)             Requested size: 242.9032pt x 116.43292pt.
-) (textuais/conclusao.tex)
-(sbc-template.bbl [9 <./img/ferramenta_selecao_arquivo.png> <./img/ferramenta_d
-iagrama_gerado.png>] [10]) [11] (sbc-template.aux) ) 
+) (textuais/conclusao.tex [8 <./img/ferramenta_diagrama_classes.png> <./img/fer
+ramenta_selecao_arquivo.png>])
+(sbc-template.bbl [9 <./img/ferramenta_diagrama_gerado.png>]) [10]
+(sbc-template.aux) ) 
 Here is how much of TeX's memory you used:
- 3508 strings out of 493328
- 47810 string characters out of 3139092
- 129177 words of memory out of 3000000
- 6934 multiletter control sequences out of 15000+200000
+ 3507 strings out of 493328
+ 47801 string characters out of 3139092
+ 128169 words of memory out of 3000000
+ 6933 multiletter control sequences out of 15000+200000
  25281 words of font info for 49 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,14n,28p,1806b,312s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.
-9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times
-/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sbc-template.pdf (11 pages, 540168 bytes).
+ 39i,14n,28p,1653b,312s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/time
+s/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on sbc-template.pdf (10 pages, 538611 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
+ 82 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
